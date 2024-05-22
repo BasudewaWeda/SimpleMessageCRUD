@@ -19,6 +19,4 @@ Route::get('/edit-message/{message}', [MessageController::class, 'edit']);
 
 Route::put('/message/{id}', [MessageController::class, 'update'])->name('message.update');
 
-Route::get('/delete-message/{message}', [MessageController::class, 'delete']);
-
-Route::delete('/delete-message/{message}', [MessageController::class, 'deleteConfirm'])->name('message.deleteConfirm');
+Route::delete('/delete-message', [MessageController::class, 'delete'])->name('message.delete');

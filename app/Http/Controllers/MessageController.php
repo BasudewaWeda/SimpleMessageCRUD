@@ -60,15 +60,22 @@ class MessageController extends Controller
         return redirect('/');
     }
 
-    public function delete(Message $message) : View {
-        return view('confirmDelete', [
-            'title' => 'Delete Confirmation',
-            'message' => $message
-        ]);
-    }
+    // public function delete(Message $message) : View {
+    //     return view('confirmDelete', [
+    //         'title' => 'Delete Confirmation',
+    //         'message' => $message
+    //     ]);
+    // }
 
-    public function deleteConfirm(Message $message) : RedirectResponse {
-        $message->delete();
+    // public function deleteConfirm(Message $message) : RedirectResponse {
+    //     $message->delete();
+
+    //     return redirect('/');
+    // }
+
+    public function delete(Request $request) : RedirectResponse {
+        $target = Message::find($request->id);
+        $target->delete();
 
         return redirect('/');
     }
